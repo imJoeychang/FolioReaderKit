@@ -27,7 +27,7 @@ public enum FolioReaderScrollDirection: Int {
     /// The current scroll direction
     ///
     /// - Returns: Returns `UICollectionViewScrollDirection`
-    func collectionViewScrollDirection() -> UICollectionViewScrollDirection {
+    func collectionViewScrollDirection() -> UICollectionView.ScrollDirection {
         switch self {
         case .vertical, .defaultVertical:
             return .vertical
@@ -140,16 +140,10 @@ open class FolioReaderConfig: NSObject {
 
     /// Enable TTS (Text To Speech)
     open var enableTTS = true
-    
-    /// Display book title in navbar
-    open var displayTitle = false
 
-    /// Hide the page indicator
+    // hide the page indicator
     open var hidePageIndicator = false
 
-    /// Go to saved position when open a book
-    open var loadSavedPositionForCurrentBook = true
-    
     // MARK: Quote image share
 
     /// Custom Quote logo
@@ -164,7 +158,7 @@ open class FolioReaderConfig: NSObject {
     // MARK: Realm
 
     /// Realm configuration for storing highlights
-    open var realmConfiguration         = Realm.Configuration(schemaVersion: 2)
+    open var realmConfiguration         = Realm.Configuration()
 
     // MARK: Localized strings
 
@@ -207,8 +201,6 @@ open class FolioReaderConfig: NSObject {
     open var localizedTakePhoto = NSLocalizedString("Take Photo", comment: "")
     open var localizedShareImageQuote = NSLocalizedString("Share image quote", comment: "")
     open var localizedShareTextQuote = NSLocalizedString("Share text quote", comment: "")
-    open var localizedSave = NSLocalizedString("Save", comment: "")
-    open var localizedHighlightNote = NSLocalizedString("Note", comment: "")
 
     public convenience init(withIdentifier identifier: String) {
         self.init()
